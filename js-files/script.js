@@ -229,6 +229,7 @@ document.querySelector(".type-area").onkeydown = (e)=>{
 document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if (event.key === "Enter") {
         // prevent default behaviour
+        document.querySelector(".type-area").value = minusString
         event.preventDefault();
         return false;
     }
