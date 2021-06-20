@@ -164,7 +164,7 @@ var modifiedpara = samples[0] // To be shown to user for typing with words delet
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
 document.querySelector(".type-area").onkeyup = function(e){
-    if(e.code === 'Space'){
+    if(e.which === 32){
         alert("Space Pressed")
         userType = document.querySelector(".type-area").value // data typed by user
         var deleteData = userType.replace(minusString,''); // getting currently typed word
