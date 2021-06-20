@@ -139,8 +139,15 @@ document.querySelector(".reset-time-mode").addEventListener("click", resetTimeMo
 
 // Reads the para written by the user and changes color of the textbox accordingly
 function checkUserInput(){
+    // if(e.key === "Space" || e.key === "Backspace"){
+    //     handleSpace(e)
+    //     return 
+    // }
     var para = document.querySelector(".para-type").innerText
     var userInput = document.querySelector(".type-area").value.replace(minusString, '')
+    if(userInput[userInput.length-1]===" "){
+        handleSpace()
+    }
     console.log("User Input : " + userInput)
     let startword = modifiedpara.substr(0,modifiedpara.indexOf(' ')+1);
     console.log(`Start Word : ${startword} Length : ${startword.length}`)
@@ -158,14 +165,15 @@ function checkUserInput(){
         document.querySelector(".type-area").style.borderColor = "#DC2626"
     }
 }
-document.querySelector(".type-area").addEventListener("input", checkUserInput)
+document.querySelector(".type-area").addEventListener("input",checkUserInput)
 
 var modifiedpara = samples[0] // To be shown to user for typing with words deleted that has already been typed
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
-document.querySelector(".type-area").addEventListener('keydown',(e)=>{
-    if(e.which === 32 || e.key === 'Space'){
-        alert("Space Pressed")
+
+
+function handleSpace(){
+
         userType = document.querySelector(".type-area").value // data typed by user
         var deleteData = userType.replace(minusString,''); // getting currently typed word
         
@@ -185,9 +193,35 @@ document.querySelector(".type-area").addEventListener('keydown',(e)=>{
             modifiedpara.replace(['<span class="highlight">', '</span>'],'')
             document.querySelector(".para-type").innerHTML = modifiedpara
         }
-    }
-    // To prevent the correct string entered from being deleted
-    else if(e.key === "Backspace"){
+}
+
+// Space was being handled fine using keyup but was not being supported by android. So I handled space using input event by comparing the last char entered
+document.querySelector(".type-area").addEventListener('keyup',(e)=>{
+
+    // if(e.which === 32 || e.key === 'Space'){
+    //     alert("Space Pressed")
+    //     userType = document.querySelector(".type-area").value // data typed by user
+    //     var deleteData = userType.replace(minusString,''); // getting currently typed word
+        
+
+    //     let startword = modifiedpara.substr(0,modifiedpara.indexOf(' ')+1); // Getting the starting word from the paragraph
+    
+    //     if(startword == deleteData){  // If the starting word is equal to the word currently typed by the user
+    //         modifiedpara = modifiedpara.replace(deleteData, '') // delete the word from the paragraph
+    //         document.querySelector(".para-type").innerHTML = modifiedpara //show it in the para section
+    //         minusString = userType // Setting the string typed by user to minusString variable for future
+    //     }
+    //     else{
+    //         document.querySelector(".error-bundle").innerHTML = document.querySelector(".error-bundle").innerHTML +`<span class="error-word">${deleteData}</span>`
+    //         document.querySelector(".type-area").value = minusString
+    //         mistakeCount+=1
+    //         console.log("Total Mistakes : "+mistakeCount)
+    //         modifiedpara.replace(['<span class="highlight">', '</span>'],'')
+    //         document.querySelector(".para-type").innerHTML = modifiedpara
+    //     }
+    // }
+    // // To prevent the correct string entered from being deleted
+    if(e.key === "Backspace"){
         var userTyped = document.querySelector(".type-area").value
         
         if(userTyped == minusString || minusString.includes(userTyped)){
