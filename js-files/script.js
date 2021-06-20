@@ -195,6 +195,9 @@ function handleSpace(){
             modifiedpara.replace(['<span class="highlight">', '</span>'],'')
             document.querySelector(".para-type").innerHTML = modifiedpara
         }
+        else{
+            document.querySelector(".type-area").value = minusString
+        }
 }
 
 // Space was being handled fine using keyup but was not being supported by android. So I handled space using input event by comparing the last char entered
