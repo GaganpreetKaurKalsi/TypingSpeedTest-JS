@@ -223,6 +223,15 @@ document.querySelector(".type-area").onkeydown = (e)=>{
     //     }
     // }
     // // To prevent the correct string entered from being deleted
+    
+}
+
+document.querySelector(".type-area").addEventListener('keydown', function (event) {
+    if (event.key === "Enter") {
+        // prevent default behaviour
+        event.preventDefault();
+        return false;
+    }
     if(e.key === "Backspace"){
         var userTyped = document.querySelector(".type-area").value
         
@@ -232,14 +241,6 @@ document.querySelector(".type-area").onkeydown = (e)=>{
             // document.querySelector(".type-area").value = minusString
         }
         
-    }
-}
-
-document.querySelector(".type-area").addEventListener('keydown', function (event) {
-    if (event.key === "Enter") {
-        // prevent default behaviour
-        event.preventDefault();
-        return false;
     }
 });
 
