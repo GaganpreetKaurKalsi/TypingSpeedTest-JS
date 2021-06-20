@@ -599,8 +599,8 @@ footer {
     font-size: 2.5rem;
   }
   .mode {
-    font-size: 17px;
-    width: 150px;
+    font-size: 18px;
+    width: 160px;
   }
   .nav-container .heading {
     font-size: 18px;
@@ -704,9 +704,9 @@ footer {
   .nav-container .portfolio-link a {
     font-size: 16px;
   }
-  .wrapper .main-head {
+  /* .wrapper .main-head {
     font-size: 2rem;
-  }
+  } */
   .time-mode-wrapper .grid-container,
   .infinity-mode-section .grid-container {
     grid-template-columns: 80px 80px 80px;
