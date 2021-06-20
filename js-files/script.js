@@ -232,9 +232,22 @@ document.querySelector(".type-area").addEventListener('keydown', function (event
         event.preventDefault();
         return false;
     }
+    // if(event.key === "Backspace" || event.keyCode == 8){
+    //     var userTyped = document.querySelector(".type-area").value
+        
+    //     if(userTyped == minusString || minusString.includes(userTyped)){
+    //         event.preventDefault();
+    //         return false;
+    //         // document.querySelector(".type-area").value = minusString
+    //     }
+        
+    // }
+});
+document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if(event.key === "Backspace" || event.keyCode == 8){
         var userTyped = document.querySelector(".type-area").value
-        
+        console.log("User Typed : " + userTyped)
+        console.log("Minus String : " + minusString)
         if(userTyped == minusString || minusString.includes(userTyped)){
             event.preventDefault();
             return false;
