@@ -163,7 +163,7 @@ document.querySelector(".type-area").addEventListener("input", checkUserInput)
 var modifiedpara = samples[0] // To be shown to user for typing with words deleted that has already been typed
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
-document.querySelector(".type-area").onkeydown = function(e){
+document.querySelector(".type-area").addEventListener('keydown',(e)=>{
     if(e.which === 32 || e.key === 'Space'){
         alert("Space Pressed")
         userType = document.querySelector(".type-area").value // data typed by user
@@ -195,7 +195,7 @@ document.querySelector(".type-area").onkeydown = function(e){
         }
         
     }
-}
+})
 
 document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if (event.key === "Enter") {
