@@ -23,7 +23,7 @@
 
     <div class="nav-container">
       <ul>
-        <li class="heading"><i class="fas fa-biking"></i> Type-o-meter</li>
+        <li class="heading">Type-o-meter</li>
         <li class="portfolio-link">
           <a href="https://gaganpreetkaurkalsi.netlify.app/">Portfolio</a>
         </li>
@@ -37,22 +37,22 @@
         <div class="nav-links inline test-options">
           <div class="time-mode mode show-time-modes">Time Mode</div>
           <div class="options">
-            <span class="time-mode mode option hide" id="minute1"
+            <a href="#time-mode"><span class="time-mode mode option hide" id="minute1"
               ><span class="bold time">1</span> min</span
-            >
-            <span class="time-mode mode option hide" id="minute2"
+            ></a>
+            <a href="#time-mode"><span class="time-mode mode option hide" id="minute2"
               ><span class="bold time">2</span> min</span
-            >
-            <span class="time-mode mode option hide" id="minute3"
+            ></a>
+            <a href="#time-mode"><span class="time-mode mode option hide" id="minute3"
               ><span class="bold time">3</span> min</span
-            >
+            ></a>
           </div>
-          <div class="infinity-mode mode">Infinity Mode</div>
+          <a href="#infinity-mode"><div class="infinity-mode mode">Infinity Mode</div></a>
         </div>
       </div>
     </div>
 
-    <section class="time-mode-section center">
+    <section class="time-mode-section center" id = "time-mode">
       <svg
         class="svg-path"
         width="1440"
@@ -68,9 +68,9 @@
           fill="#FFD000"
         ></path>
       </svg>
-      <h1 class="head">Beat the time</h1>
+      <h1 class="head text-shadow">Beat the time</h1>
 
-      <div class="time-mode-wrapper">
+      <div class="time-mode-wrapper" >
         <div class="result grid-container">
           <div class="time one result-data" id="clock-time-mode">
             <p>
@@ -120,7 +120,7 @@
         </div>
       </div>
     </section>
-    <section class="infinity-mode-section">
+    <section class="infinity-mode-section" id = "infinity-mode">
             <svg
             class="svg-path"
             width="1440"
@@ -137,7 +137,7 @@
             ></path>
         </svg>
         <h3 class="sub-head">Type as fast as you can</h3>
-        <h1 class="head">Play Infinity <i class="fas fa-infinity infinity-icon"></i></h1>
+        <h1 class="head text-shadow">Play Infinity <i class="fas fa-infinity infinity-icon"></i></h1>
         <div class="result grid-container">
             <div class="time one result-data result-timer-infinity" id="clock-time-mode">
               <p>

@@ -66,6 +66,9 @@ body {
   color: rgba(0, 0, 0, 0.938);
   text-shadow: 3px 0px 0px rgba(0, 0, 0, 0.938);
 }
+.text-shadow{
+  text-shadow: 1px 0px 0px rgb(0 0 0 / 62%);
+}
 .clock i {
   /* color : #FBBF24; */
   font-size: 5rem;
@@ -84,6 +87,10 @@ body {
   margin: 15px;
   border-radius: 15px;
   cursor: pointer;
+  color : black;
+}
+a{
+  text-decoration : none;
 }
 .mode:hover {
   background-color: #fcd34d;
@@ -115,6 +122,7 @@ body {
   /* top : 10px; */
   font-size: 18px;
   border: 2px solid #f3f4f6;
+  color : black;
 }
 .option:hover {
   border: 2px solid var(--chrome);
@@ -568,6 +576,9 @@ footer {
   position: relative;
   bottom: -35px;
 }
+.time-mode-section .head{
+  background-color: #ffffff47;
+}
 
 /* Animations */
 @keyframes jump {
@@ -616,9 +627,10 @@ footer {
   }
   .clock {
     display: block;
+    margin-top : 20px;
   }
   .wrapper {
-    padding: 60px 5px 20px 5px;
+    padding: 70px 5px 30px 5px;
   }
   .nav-links {
     margin: 20px 0px;
@@ -651,7 +663,7 @@ footer {
     margin-bottom: 20px;
   }
   .btn {
-    padding: 7px 15px;
+    padding: 9px 23px;
     font-size: 18px;
   }
   .type-area {
@@ -746,27 +758,25 @@ footer {
   .seven {
     font-size: 14px;
   }
+  .type-here-anim{
+    letter-spacing : 0px;
+  }
   .result-data {
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     margin: auto;
     margin-bottom: 0;
     font-size: 20px;
     line-height: 70px;
     font-weight: lighter;
-  }
-  .time-mode-wrapper .time,
-  .infinity-mode-section .time {
-    font-size: 25px;
-    height: 90px;
-    width: 90px;
+    border-radius: 18px;
   }
   .time-mode-wrapper .time p {
-    line-height: 15px;
-    top: 22px;
+    line-height: 12px;
+    top: 25px;
   }
   .infinity-mode-section .result-data p {
-    line-height: 80px;
+    line-height: 85px;
   }
   .infinity-mode-section .result-data {
     line-height: 70px;
