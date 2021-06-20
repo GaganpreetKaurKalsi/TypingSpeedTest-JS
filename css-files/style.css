@@ -603,7 +603,7 @@ footer {
   color : black;
   text-align: right;
   position:relative;
-  top: -15px;
+  top: -45px;
   color: #991B1B;
   font-weight : bold;
 }
@@ -634,6 +634,9 @@ footer {
 }
 
 @media (max-width: 800px) {
+  .goto-samples{
+    top: -15px;
+  }
   .wrapper .main-head {
     font-size: 2.5rem;
   }

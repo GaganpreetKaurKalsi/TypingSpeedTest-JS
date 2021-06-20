@@ -5,10 +5,14 @@ var samples = [
     "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
     "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best."
 ]
+var infinityPara = "The Patronus is the most famous defensive charm. The aim is to produce a protector, which takes the form of an animal. The exact form of the Patronus will not be apparent until the spell has been successfully cast. It is the only spell effective against Dementors. The majority of witches and wizards are unable to produce Patronuses and to do so is generally considered a mark of superior magical ability.Since he had last seen it, the gargoyle guarding the entrance to the headmaster’s study had been knocked aside; it stood lopsided, looking a little punch-drunk, and Harry wondered whether it would be able to distinguish passwords anymore.They clambered over him and onto the spiral stone staircase that moved slowly upward like an escalator. Harry pushed open the door at the top.He had one, brief glimpse of the stone Pensieve on the desk where he had left it, and then an earsplitting noise made him cry out, thinking of curses and returning Death Eaters and the rebirth of Voldemort.I need the place where everything is hidden, Harry begged of it inside his head, and the door materialized on their third run past.I’m putting the Elder Wand, back where it came from. It can stay there. If I die a natural death like Ignotus, its power will be broken, won’t it? The previous master will never have been defeated. That’ll be the end of it."
+
 localStorage.setItem("minuteValue", 1)
 
 
 // Final Scripts
+document.querySelector(".infinity-para").innerText = infinityPara
+
 function toggleVisibility(){
     var options = document.querySelector(".test-options").querySelectorAll(".option")
     options.forEach(option => {
@@ -49,11 +53,11 @@ function setDefault(){
     document.querySelector("#timer-wpm").innerText = "0"
     document.querySelector("#timer-cpm").innerText = "0"
     document.querySelector("#timer-accuracy").innerText = "0"
-    document.querySelector(".time-mode-wrapper").querySelector(".para-type").innerText = samples[0]
+    document.querySelector(".time-mode-wrapper").querySelector(".para-type").innerText = infinityPara
     document.querySelector(".time-mode-wrapper").querySelector(".type-area").value = ""
     document.querySelector(".time-mode-wrapper").querySelector(".type-area").disabled = false
     document.querySelector(".type-here-div").style.visibility = "visible"
-    modifiedpara = samples[0]
+    modifiedpara = infinityPara
     minusString = ""
     typingStarted = false
 }
@@ -108,7 +112,7 @@ function resetTimeMode(){
     typingStarted = false
     clearInterval(ticktock)
     document.querySelector(".type-here-div").style.visibility = "visible"
-    document.querySelector(".para-type").innerHTML = samples[0]
+    document.querySelector(".para-type").innerHTML = infinityPara
     var textarea = document.querySelector(".type-area")
     textarea.style.borderColor = "#A1A1AA"
     textarea.value = ""
@@ -125,7 +129,7 @@ function resetTimeMode(){
     document.querySelector("#timer-wpm").innerText = "0"
     document.querySelector("#timer-cpm").innerText = "0"
     document.querySelector("#timer-accuracy").innerText = "0"
-    modifiedpara = samples[0]
+    modifiedpara = infinityPara
     minusString = ""
     mistakeCount = 0
 }
@@ -153,7 +157,7 @@ function checkUserInput(){
     console.log(`Start Word : ${startword} Length : ${startword.length}`)
     if(document.querySelector(".type-area").value == ""){
         document.querySelector(".type-area").style.borderColor = "#A1A1AA"
-        document.querySelector(".para-type").innerText = samples[0]
+        document.querySelector(".para-type").innerText = infinityPara
     }
     else if(startword.includes(userInput)){
         document.querySelector(".type-area").style.borderColor = "#EA580C"
@@ -167,7 +171,7 @@ function checkUserInput(){
 }
 document.querySelector(".type-area").addEventListener("input",checkUserInput)
 
-var modifiedpara = samples[0] // To be shown to user for typing with words deleted that has already been typed
+var modifiedpara = infinityPara // To be shown to user for typing with words deleted that has already been typed
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
 
