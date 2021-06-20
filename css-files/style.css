@@ -802,6 +802,9 @@ footer {
     font-weight: lighter;
     border-radius: 18px;
   }
+  .debug{
+    color : black;
+  }
   .time-mode-wrapper .time p {
     line-height: 12px;
     top: 25px;
