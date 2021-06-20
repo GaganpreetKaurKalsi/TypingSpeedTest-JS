@@ -143,14 +143,12 @@ document.querySelector(".reset-time-mode").addEventListener("click", resetTimeMo
 
 // Reads the para written by the user and changes color of the textbox accordingly
 function checkUserInput(){
-    // if(e.key === "Space" || e.key === "Backspace"){
-    //     handleSpace(e)
-    //     return 
-    // }
+
     var para = document.querySelector(".para-type").innerText
     var userInput = document.querySelector(".type-area").value.replace(minusString, '')
     if(userInput[userInput.length-1]===" "){
         handleSpace()
+        return
     }
     console.log("User Input : " + userInput)
     let startword = modifiedpara.substr(0,modifiedpara.indexOf(' ')+1);
@@ -160,7 +158,7 @@ function checkUserInput(){
         document.querySelector(".para-type").innerText = infinityPara
     }
     else if(startword.includes(userInput)){
-        document.querySelector(".type-area").style.borderColor = "#EA580C"
+        document.querySelector(".type-area").style.borderColor = "#F97316"
         text = modifiedpara
         text = text.replace(userInput, '<span class="highlight">'+userInput +'</span>')
         document.querySelector(".para-type").innerHTML = text
@@ -188,6 +186,7 @@ function handleSpace(){
             minusString = userType // Setting the string typed by user to minusString variable for future
         }
         else{
+            document.querySelector(".debug").innerText = `User Typed : ${usertype} \n Delete data : ${deleteData}\n Minus String : ${minusString}`
             document.querySelector(".error-bundle").innerHTML = document.querySelector(".error-bundle").innerHTML +`<span class="error-word">${deleteData}</span>`
             document.querySelector(".type-area").value = minusString
             mistakeCount+=1
