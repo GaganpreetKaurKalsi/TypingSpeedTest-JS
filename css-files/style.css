@@ -88,6 +88,7 @@ body {
   border-radius: 15px;
   cursor: pointer;
   color : black;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 a{
   text-decoration : none;
@@ -351,20 +352,30 @@ footer {
 .time-mode-section {
   background-color: #ffd000;
   position: relative;
-  padding: 30px 10px;
+  padding: 50px 10px;
 }
 .time-mode-section .head {
   text-decoration: underline;
-  margin-top: 50px;
+  max-width : 500px;
+  margin : 70px auto;
   transform: rotate(-5deg);
   letter-spacing: 2px;
-  font-size: 2rem;
+  font-size: 2.3rem;
   top: 0px;
   position: relative;
-  animation-name: jump;
-  animation-duration: 1.5s;
+  /* animation-name: jump; */
+  /* animation-duration: 1.5s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease;
+  animation-timing-function: ease; */
+  /* background-color: #ffffffc0; */
+  margin-top:20px;
+}
+.time-mode-section .sub-head{
+  transform: rotate(-5deg);
+  color : rgb(47, 47, 47);
+  font-weight : lighter;
+  margin-top : 50px;
+  text-align : center;
 }
 .svg-path {
   position: absolute;
@@ -577,7 +588,7 @@ footer {
   bottom: -35px;
 }
 .time-mode-section .head{
-  background-color: #ffffff47;
+  /* background-color: #ffffffa4; */
 }
 
 /* Animations */
@@ -722,7 +733,7 @@ footer {
   .time-mode-wrapper .grid-container,
   .infinity-mode-section .grid-container {
     grid-template-columns: 80px 80px 80px;
-    grid-template-rows: 100px 80px 20px;
+    grid-template-rows: 120px 80px 20px;
   }
   .one {
     grid-column: 1 / 4;
@@ -780,5 +791,8 @@ footer {
   }
   .infinity-mode-section .result-data {
     line-height: 70px;
+  }
+  #clock-time-mode{
+    margin-top : 0;
   }
 }
