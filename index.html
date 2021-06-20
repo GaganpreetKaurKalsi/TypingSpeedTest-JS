@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Type-o-meter</title>
+    <link rel="stylesheet" href="/css-files/style.css" />
+    <link rel="stylesheet" href="/css-files/loader.css" />
+    <script
+      src="https://kit.fontawesome.com/d733855d1a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- HTML for Loader -->
+    <div class="showbox">
+        <div class="loader"> <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg> </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------ -->
+
+    <div class="nav-container">
+      <ul>
+        <li class="heading"><i class="fas fa-biking"></i> Type-o-meter</li>
+        <li class="portfolio-link">
+          <a href="https://gaganpreetkaurkalsi.netlify.app/">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      <h4 class="heading head">TYPING SPEED TEST</h4>
+      <h1 class="main-head head">Test your typing skills</h1>
+      <div class="center">
+        <div class="clock inline"><i class="fas fa-clock"></i></div>
+        <div class="nav-links inline test-options">
+          <div class="time-mode mode show-time-modes">Time Mode</div>
+          <div class="options">
+            <span class="time-mode mode option hide" id="minute1"
+              ><span class="bold time">1</span> min</span
+            >
+            <span class="time-mode mode option hide" id="minute2"
+              ><span class="bold time">2</span> min</span
+            >
+            <span class="time-mode mode option hide" id="minute3"
+              ><span class="bold time">3</span> min</span
+            >
+          </div>
+          <div class="infinity-mode mode">Infinity Mode</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="time-mode-section center">
+      <svg
+        class="svg-path"
+        width="1440"
+        height="36"
+        viewBox="0 0 1440 36"
+        class="u-block"
+        xmlns="http://www.w3.org/2000/svg"
+        style="width: 100%; height: auto"
+      >
+        <rect width="100%" height="100%" fill="#F6F6F7"></rect>
+        <path
+          d="M1440 36V8.2s-105.6-1.2-160.7-6a877 877 0 00-150.5 2.5c-42.1 3.9-140 15-223 15C754 19.6 700.3 6.8 548.8 7c-143.7 0-273.4 11.5-350 12.6-76.6 1.2-198.8 0-198.8 0V36h1440z"
+          fill="#FFD000"
+        ></path>
+      </svg>
+      <h1 class="head">Beat the time</h1>
+
+      <div class="time-mode-wrapper">
+        <div class="result grid-container">
+          <div class="time one result-data" id="clock-time-mode">
+            <p>
+              1 <span class="mini"><br />min</span>
+            </p>
+          </div>
+          <div class="wpm grid two result-data" id="timer-wpm">0</div>
+          <div class="wpm-head five result-head">words/min</div>
+          <div class="cpm grid three result-data" id="timer-cpm">0</div>
+          <div class="cpm-head six result-head">chars/min</div>
+          <div class="accuracy grid four result-data" id="timer-accuracy">0</div>
+          <div class="accuracy-head seven result-head">% accuracy</div>
+        </div>
+        <p class="para-type">
+          The Patronus is the most famous defensive charm. The aim is to produce
+          a protector, which takes the form of an animal. The exact form of the
+          Patronus will not be apparent until the spell has been successfully
+          cast. It is the only spell effective against Dementors. The majority
+          of witches and wizards are unable to produce Patronuses and to do so
+          is generally considered a mark of superior magical ability.
+        </p>
+        <div class="timer min1 timer-adjust">
+          <span class="min" id="timer-minute">01</span>
+          <bold>:</bold>
+          <span class="sec" id="timer-second">00</span>
+        </div>
+        <div class="type-here-div">
+          <span class="type-here-anim">Start Typing</span>
+          <span class="triangle-down"></span>
+        </div>
+
+        <textarea
+          class="type-area"
+          name="type-area"
+          id="type-area"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <div class="btn-container no-center">
+            <button class="btn reset-time-mode" type="reset">Reset</button>
+          </div>
+        <div class="error-div">
+          <h3 class="error-head">WORD BIN <i class="far fa-trash-alt"></i></h3>
+          <div class="error-container">
+            <p class="error error-bundle"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="infinity-mode-section">
+            <svg
+            class="svg-path"
+            width="1440"
+            height="36"
+            viewBox="0 0 1440 36"
+            class="u-block"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 100%; height: auto"
+            >
+            <rect width="100%" height="100%" fill="#FFD000"></rect>
+            <path
+            d="M1440 36V8.2s-105.6-1.2-160.7-6a877 877 0 00-150.5 2.5c-42.1 3.9-140 15-223 15C754 19.6 700.3 6.8 548.8 7c-143.7 0-273.4 11.5-350 12.6-76.6 1.2-198.8 0-198.8 0V36h1440z"
+            fill="#F6F6F7"
+            ></path>
+        </svg>
+        <h3 class="sub-head">Type as fast as you can</h3>
+        <h1 class="head">Play Infinity <i class="fas fa-infinity infinity-icon"></i></h1>
+        <div class="result grid-container">
+            <div class="time one result-data result-timer-infinity" id="clock-time-mode">
+              <p>
+                <i class="fas fa-infinity"></i> 
+              </p>
+            </div>
+            <div class="wpm grid two result-data" id="timer-wpm-inf">0</div>
+            <div class="wpm-head five result-head">words/min</div>
+            <div class="cpm grid three result-data" id="timer-cpm-inf">0</div>
+            <div class="cpm-head six result-head">chars/min</div>
+            <div class="accuracy grid four result-data" id="timer-accuracy-inf">0</div>
+            <div class="accuracy-head seven result-head">% accuracy</div>
+        </div>
+        <div class="user-space">
+            <p class="user-type no-select infinity-user-type" id = "sample-para"></p>
+            <div class="timer">
+                <span class="min infinity-min">00</span>
+                <bold>:</bold>
+                <span class="sec infinity-sec">00</span>
+            </div>
+            <textarea class = "type-area infinity-type-area" name="type-area" id="type-area" cols="30" rows="8" disabled></textarea>
+            <div class="btn-container">
+                <button class="btn start" type="button">Start</button>
+                <button class = "btn reset" type="reset">Reset</button>
+            </div>
+            <div class="result">
+                <p></p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="sample-container">
+        <svg class="svg-path" width="1440" height="36" viewBox="0 0 1440 36" class="u-block" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;"><rect width="100%" height="100%" fill="#F6F6F7"></rect><path d="M1440 36V8.2s-105.6-1.2-160.7-6a877 877 0 00-150.5 2.5c-42.1 3.9-140 15-223 15C754 19.6 700.3 6.8 548.8 7c-143.7 0-273.4 11.5-350 12.6-76.6 1.2-198.8 0-198.8 0V36h1440z" fill="#1B1B20"></path></svg>
+
+        <div class="separator"><i class="fas fa-ellipsis-h"></i></div>
+        <h2 class="sample-head">Samples</h2>
+        <h3 class="sub-head">Choose what you would like to type</h3>
+        <p class="sample odd no-select">The Patronus is the most famous defensive charm. The aim is to produce a protector, which takes the form of an animal. The exact form of the Patronus will not be apparent until the spell has been successfully cast. It is the only spell effective against Dementors.  The majority of witches and wizards are unable to produce Patronuses and to do so is generally considered a mark of superior magical ability.</p>
+        <p class="sample even no-select">They can develop under a variety of conditions within these climatic limits, and the kind of soil, plant, and animal life differs according to the extremes of environmental influences. In cool, high-latitude subpolar regions, forests are dominated by hardy conifers like pines, spruces, and larches. A growing period of 100 to 200 days allows deciduous forests to be dominated by oaks, elms, birches, maples, beeches, and aspens.</p>
+        <p class="sample odd no-select">I believe that everything happens for a reason. People change so that you can learn to let go, things go wrong so that you appreciate them when they're right, you believe lies so you eventually learn to trust no one but yourself, and sometimes good things fall apart so better things can fall together.</p>
+        <p class="sample even no-select">Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.</p>
+        <p class="sample odd no-select">I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p>
+    </div>
+
+    <!-- <div class="time-mode">
+        <p class="para-type">The Patronus is the most famous defensive charm. The aim is to produce a protector, which takes the form of an animal. The exact form of the Patronus will not be apparent until the spell has been successfully cast. It is the only spell effective against Dementors. The majority of witches and wizards are unable to produce Patronuses and to do so is generally considered a mark of superior magical ability.</p>
+        <div class="timer min1">
+            <span class="min">01</span>
+            <bold>:</bold>
+            <span class="sec">00</span>
+        </div>
+        <textarea class = "type-area" name="type-area" id="type-area" cols="30" rows="10"></textarea>
+        <div class="error-div">
+            <h3 class="error-head">Errors here : </h3>
+            <p class="error"></p>
+        </div>
+        <div class="result">
+            <span class="wpm"></span>
+            <span class="accuracy"></span>
+        </div>
+        <div class="btn-container">
+            <button class = "btn reset-time-mode" type="reset">Reset</button>
+        </div>
+        
+    </div> -->
+
+    <footer class="footer">
+      <div class="footer-header">social media presence</div>
+      <ul class="social-links list">
+        <li class="list-item-inline">
+          <a href="https://github.com/GaganpreetKaurKalsi" class="link"
+            ><i class="fab fa-github"></i
+          ></a>
+        </li>
+        <li class="list-item-inline">
+          <a
+            href="https://www.linkedin.com/in/gaganpreet-kaur-kalsi-2a6650191/"
+            class="link"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </li>
+        <li class="list-item-inline">
+          <a href="https://www.instagram.com/gagan_singhkalsi11/" class="link"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="/js-files/script.js"></script>
+    <script src="/js-files/loader.js"></script>
+  </body>
+</html>
