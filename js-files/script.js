@@ -232,11 +232,11 @@ document.querySelector(".type-area").addEventListener('keydown', function (event
         event.preventDefault();
         return false;
     }
-    if(e.key === "Backspace"){
+    if(event.key === "Backspace" || event.keyCode == 8){
         var userTyped = document.querySelector(".type-area").value
         
         if(userTyped == minusString || minusString.includes(userTyped)){
-            e.preventDefault();
+            event.preventDefault();
             return false;
             // document.querySelector(".type-area").value = minusString
         }
