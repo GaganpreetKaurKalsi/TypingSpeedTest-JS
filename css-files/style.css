@@ -4,6 +4,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  transition: all 0.5s ease-in-out;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -92,6 +94,7 @@ body {
 }
 a{
   text-decoration : none;
+  color : white;
 }
 .mode:hover {
   background-color: #fcd34d;

@@ -164,7 +164,7 @@ var modifiedpara = samples[0] // To be shown to user for typing with words delet
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
 document.querySelector(".type-area").onkeyup = function(e){
-    if(e.keyCode == 32){
+    if(e.key == " "){
         userType = document.querySelector(".type-area").value // data typed by user
         var deleteData = userType.replace(minusString,''); // getting currently typed word
         
@@ -186,7 +186,7 @@ document.querySelector(".type-area").onkeyup = function(e){
         }
     }
     // To prevent the correct string entered from being deleted
-    else if(e.keyCode == 8){
+    else if(e.key === "Backspace"){
         var userTyped = document.querySelector(".type-area").value
         
         if(userTyped == minusString || minusString.includes(userTyped)){
@@ -197,7 +197,7 @@ document.querySelector(".type-area").onkeyup = function(e){
 }
 
 document.querySelector(".type-area").addEventListener('keydown', function (event) {
-    if (event.keyCode === 13) {
+    if (event.key === "Enter") {
         // prevent default behaviour
         event.preventDefault();
         return false;
