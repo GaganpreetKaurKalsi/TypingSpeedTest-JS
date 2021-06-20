@@ -380,6 +380,10 @@ footer {
   font-weight : lighter;
   margin-top : 50px;
   text-align : center;
+  background-color: #ffffff99;
+  max-width: 280px;
+  margin: auto;
+  margin-top: 50px;
 }
 .svg-path {
   position: absolute;

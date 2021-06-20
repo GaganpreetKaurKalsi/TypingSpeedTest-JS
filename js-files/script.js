@@ -176,8 +176,6 @@ function handleSpace(){
 
         userType = document.querySelector(".type-area").value // data typed by user
         var deleteData = userType.replace(minusString,''); // getting currently typed word
-        
-
         let startword = modifiedpara.substr(0,modifiedpara.indexOf(' ')+1); // Getting the starting word from the paragraph
     
         if(startword == deleteData){  // If the starting word is equal to the word currently typed by the user
@@ -196,7 +194,7 @@ function handleSpace(){
 }
 
 // Space was being handled fine using keyup but was not being supported by android. So I handled space using input event by comparing the last char entered
-document.querySelector(".type-area").addEventListener('keyup',(e)=>{
+document.querySelector(".type-area").onkeydown = (e)=>{
 
     // if(e.which === 32 || e.key === 'Space'){
     //     alert("Space Pressed")
@@ -225,11 +223,13 @@ document.querySelector(".type-area").addEventListener('keyup',(e)=>{
         var userTyped = document.querySelector(".type-area").value
         
         if(userTyped == minusString || minusString.includes(userTyped)){
-            document.querySelector(".type-area").value = minusString
+            e.preventDefault();
+            return false;
+            // document.querySelector(".type-area").value = minusString
         }
         
     }
-})
+}
 
 document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if (event.key === "Enter") {
