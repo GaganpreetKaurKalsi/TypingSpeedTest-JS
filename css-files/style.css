@@ -207,6 +207,7 @@ select:focus {
   margin: 20px auto;
   letter-spacing: 1px;
   margin-bottom: 50px;
+  color :#ffd000;
 }
 .sample-head {
   text-align: center;
@@ -733,7 +734,7 @@ footer {
   .time-mode-wrapper .grid-container,
   .infinity-mode-section .grid-container {
     grid-template-columns: 80px 80px 80px;
-    grid-template-rows: 120px 80px 20px;
+    grid-template-rows: 140px 80px 20px;
   }
   .one {
     grid-column: 1 / 4;
@@ -794,5 +795,13 @@ footer {
   }
   #clock-time-mode{
     margin-top : 0;
+  }
+  .separator i {
+    font-size: 30px;
+  }
+  .sample-container {
+    background-image: url(/images/stars.png), url(/images/stars.png);
+    background-size: 572px auto;
+    background-position:0%;
   }
 }
