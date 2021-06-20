@@ -186,7 +186,6 @@ function handleSpace(){
             minusString = userType // Setting the string typed by user to minusString variable for future
         }
         else if (startword != deleteData && userType != deleteData){
-            document.querySelector(".debug").innerText = `User Typed : ${userType} \n Delete data : ${deleteData}\n Minus String : ${minusString}`
 
             document.querySelector(".error-bundle").innerHTML = document.querySelector(".error-bundle").innerHTML +`<span class="error-word">${deleteData}</span>`
             document.querySelector(".type-area").value = minusString
@@ -236,21 +235,9 @@ document.querySelector(".type-area").addEventListener('keydown', function (event
         event.preventDefault();
         return false;
     }
-    // if(event.key === "Backspace" || event.keyCode == 8){
-    //     var userTyped = document.querySelector(".type-area").value
-        
-    //     if(userTyped == minusString || minusString.includes(userTyped)){
-    //         event.preventDefault();
-    //         return false;
-    //         // document.querySelector(".type-area").value = minusString
-    //     }
-        
-    // }
-});
-document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if(event.key === "Backspace" || event.keyCode == 8){
         var userTyped = document.querySelector(".type-area").value
-
+        
         if(userTyped == minusString || minusString.includes(userTyped)){
             event.preventDefault();
             return false;
