@@ -11,8 +11,26 @@ localStorage.setItem("minuteValue", 1)
 
 
 // Final Scripts
+
+// Setting up the timer-mode paragraph
 document.querySelector(".infinity-para").innerText = infinityPara
 
+// Hiding 1min, 2min, 3min btns when the btns loose focus and setting to default view
+function manageBtns(e){
+    var classes = e.target.classList.value.split(" ")
+    if(!(classes.includes("option") || classes.includes("show-time-modes"))){
+        document.querySelector(".show-time-modes").classList.remove("selected")
+        document.querySelector(".infinity-mode").classList.remove("hide")
+        var options = document.querySelector(".test-options").querySelectorAll(".option")
+        options.forEach(option => {
+            option.classList.add("hide")
+        });
+    }
+}
+window.addEventListener("click", (e)=>{manageBtns(e)})
+
+
+// Handles the visibility of Buttons for Time Mode and Infinity Mode
 function toggleVisibility(){
     var options = document.querySelector(".test-options").querySelectorAll(".option")
     options.forEach(option => {
@@ -37,10 +55,11 @@ function toggleVisibility(){
 document.querySelector(".show-time-modes").addEventListener("click", toggleVisibility)
 
 
+// Updates the clock for time mode when child buttons of Time Mode are clicked (1min, 2min, 3min)
 var updateClock = function(time){
-    console.log(time)
     document.querySelector("#clock-time-mode").innerHTML = `<p>${time} <span class="mini"><br>min</span></p>`
     document.querySelector("#timer-minute").innerText = "0" + time.toString()
+    document.querySelector("#timer-second").innerText = "00" 
     minuteValue = time
     localStorage.setItem("minuteValue", time)
     setDefault()
@@ -49,7 +68,9 @@ document.querySelector("#minute1").addEventListener("click",()=>{updateClock(1)}
 document.querySelector("#minute2").addEventListener("click", ()=>{updateClock(2)}, false)
 document.querySelector("#minute3").addEventListener("click", ()=>{updateClock(3)}, false)
 
+// Function for setting default values(clearing all the things up if written any)
 function setDefault(){
+    clearInterval(ticktock)
     document.querySelector("#timer-wpm").innerText = "0"
     document.querySelector("#timer-cpm").innerText = "0"
     document.querySelector("#timer-accuracy").innerText = "0"
@@ -57,13 +78,17 @@ function setDefault(){
     document.querySelector(".time-mode-wrapper").querySelector(".type-area").value = ""
     document.querySelector(".time-mode-wrapper").querySelector(".type-area").disabled = false
     document.querySelector(".type-here-div").style.visibility = "visible"
+    document.querySelector(".error-div").querySelector(".error").innerText = ""  
     modifiedpara = infinityPara
     minusString = ""
     typingStarted = false
+    reset()
 }
+
 var minuteValue = 1
 var secondValue = 0
 var ticktock
+// Countdown timer for Time Mode
 function countdownTimer(){
     if(secondValue==0){
         minuteValue = minuteValue-1
@@ -95,10 +120,12 @@ function countdownTimer(){
     }
 }
 
+// Function for invoking the countdown timer at an interval of every 1 second 
 function runTimer(){
     ticktock = setInterval(countdownTimer, 1000)
 }
 
+// Run timer for Time Mode section when the textarea is in focus for the first time
 var typingStarted = false
 document.querySelector(".type-area").addEventListener("focus", ()=>{
     if(typingStarted == false){
@@ -108,6 +135,7 @@ document.querySelector(".type-area").addEventListener("focus", ()=>{
     }
 })
 
+// Reset the components of Time Mode section to default state when RESET btn is clicked
 function resetTimeMode(){
     typingStarted = false
     clearInterval(ticktock)
@@ -133,38 +161,28 @@ function resetTimeMode(){
     minusString = ""
     mistakeCount = 0
 }
-
-function clearResult(){
-    document.querySelector(".result").querySelector("wpm") = ""
-    document.querySelector(".result").querySelector("accuracy") = ""
-}
 document.querySelector(".reset-time-mode").addEventListener("click", resetTimeMode)
 
 
-// Reads the para written by the user and changes color of the textbox accordingly
+// Invokes on input event. Handles the highlighting as the user types.
 function checkUserInput(){
-
-    var para = document.querySelector(".para-type").innerText
     var userInput = document.querySelector(".type-area").value.replace(minusString, '')
     if(userInput[userInput.length-1]===" "){
         handleSpace()
         return
     }
-    console.log("User Input : " + userInput)
     let startword = modifiedpara.substr(0,modifiedpara.indexOf(' ')+1);
-    console.log(`Start Word : ${startword} Length : ${startword.length}`)
+
     if(document.querySelector(".type-area").value == ""){
-        document.querySelector(".type-area").style.borderColor = "#A1A1AA"
         document.querySelector(".para-type").innerText = infinityPara
     }
     else if(startword.includes(userInput)){
-        document.querySelector(".type-area").style.borderColor = "#F97316"
         text = modifiedpara
         text = text.replace(userInput, '<span class="highlight">'+userInput +'</span>')
         document.querySelector(".para-type").innerHTML = text
     }
     else{
-        document.querySelector(".type-area").style.borderColor = "#DC2626"
+        return
     }
 }
 document.querySelector(".type-area").addEventListener("input",checkUserInput)
@@ -173,7 +191,7 @@ var modifiedpara = infinityPara // To be shown to user for typing with words del
 var minusString = "" // String to be minused from the total typed by the user in the textarea to know the currently typed word 
 
 
-
+// Invoked when user presses space btn. It checks if the currently typed word matches the current first word from the para. If does then it deletes the first word from the paragraph. If the word is wrong then it dumps it in the WORD BIN. 
 function handleSpace(){
 
         userType = document.querySelector(".type-area").value // data typed by user
@@ -190,7 +208,6 @@ function handleSpace(){
             document.querySelector(".error-bundle").innerHTML = document.querySelector(".error-bundle").innerHTML +`<span class="error-word">${deleteData}</span>`
             document.querySelector(".type-area").value = minusString
             mistakeCount+=1
-            console.log("Total Mistakes : "+mistakeCount)
             modifiedpara.replace(['<span class="highlight">', '</span>'],'')
             document.querySelector(".para-type").innerHTML = modifiedpara
         }
@@ -200,6 +217,7 @@ function handleSpace(){
 }
 
 // Space was being handled fine using keyup but was not being supported by android. So I handled space using input event by comparing the last char entered
+// The below script is the original script working fine for browser but not for android
 document.querySelector(".type-area").onkeydown = (e)=>{
 
     // if(e.which === 32 || e.key === 'Space'){
@@ -228,6 +246,8 @@ document.querySelector(".type-area").onkeydown = (e)=>{
     
 }
 
+// Handling Enter key and backspace key
+// Backspace working fine for window browsers. Creating a little trouble for android.
 document.querySelector(".type-area").addEventListener('keydown', function (event) {
     if (event.key === "Enter") {
         // prevent default behaviour
@@ -247,6 +267,7 @@ document.querySelector(".type-area").addEventListener('keydown', function (event
     }
 });
 
+// Calculate WPM when data is passed either in string or length form
 function calculateWPM(data, totalMin){
     var charcount = data.length
     if(charcount===undefined){
@@ -255,6 +276,7 @@ function calculateWPM(data, totalMin){
     return wpm = (charcount/5)/totalMin
 }
 
+// Calculate CPM when data is passed either in string or length form
 function calculateCPM(data, totalMin){
     var charcount = data.length
     if(charcount == undefined){
@@ -263,6 +285,7 @@ function calculateCPM(data, totalMin){
     return wpm = (charcount)/totalMin
 }
 
+//Calculate Accuracy when data is passed either in string or length form
 function calculateAccuracy(correctChars, totalChars){
     correctChar = correctChars.length
     if(correctChar == undefined){
@@ -272,14 +295,13 @@ function calculateAccuracy(correctChars, totalChars){
     if(totalChar == undefined){
         totalChar = totalChars
     }
-    console.log("From Accuracy : ", correctChar, totalChar)
     return (correctChar/totalChar)*100
 }
 
+// After the designated time is UP, handles visibility of components, Loader, and displays result
 async function timeUp(){
     document.querySelector(".type-area").disabled = true
     document.querySelector(".showbox").style.visibility = "visible"
-    // document.querySelector(".showbox").style.display = "flex"
 
     let myPromise = new Promise(function(myResolve, myReject) {
         setTimeout(function() { 
@@ -288,25 +310,23 @@ async function timeUp(){
       });
     await myPromise.then((result)=>{clearLoader()})
 
-    // setTimeout(clearLoader, 5000)
+    document.querySelector("#time-mode").scrollIntoView()
     var data = document.querySelector(".type-area").value
     var time = localStorage.getItem("minuteValue")
     if(time == undefined || time == null){
         time = 1
     }
-    console.log("Timer Mode : " + time + "Minutes")
 
     var correct = minusString
     var error = document.querySelector(".error-bundle").innerText.replace("<span class='error-word'>", " ")
     error = error.replace("</span>", "")
-    console.log(error)
     var total = correct+error
-    console.log(total)
     document.querySelector("#timer-wpm").innerText = calculateWPM(minusString, time).toFixed(2)
     document.querySelector("#timer-cpm").innerText = calculateCPM(total, time).toFixed(2)
     document.querySelector("#timer-accuracy").innerText = calculateAccuracy(correct, total).toFixed(2)
 }
 
+// Hide the loader after 5 seconds
 function clearLoader(){
     document.querySelector(".showbox").style.visibility = "collapse"
     // document.querySelector(".showbox").style.display = "none"
@@ -314,9 +334,18 @@ function clearLoader(){
 
 
 // INFINITY MODE SCRIPTS
+
+// Assigning random sample as paragraph to User
 var random = Math.floor((Math.random() * 5) + 1)-1;
 document.querySelector(".infinity-user-type").innerText = samples[random];
 
+// Set to Default values when the INFINITY MODE btn is clicked
+document.querySelector("#infinity-mode-btn").addEventListener("click", ()=>{
+    setDefault();
+    resetTimeMode();
+})
+
+// When the User clicks on any sample in the sample container, the para is updated in the Infinity Section
 document.querySelector(".sample-container").addEventListener("click", (callback)=>{
     document.querySelector(".infinity-user-type").innerText = callback.target.innerText;
     for(i=0;i<samples.length;i++){
@@ -327,15 +356,21 @@ document.querySelector(".sample-container").addEventListener("click", (callback)
     reset()
 })
 
+// Invoked when Start btn is clicked
 function start(){
     document.querySelector(".infinity-type-area").disabled = false
     document.querySelector(".start").disabled = true
+    document.querySelector(".start").style.backgroundColor = "#D4D4D4"
+    document.querySelector(".start").style.cursor = "auto"
     clocking = setInterval(timer, 1000);
 }
 
+// Invoked when RESET btn is clicked, reset the components of Infinity Section to default
 function reset(){
     document.querySelector(".infinity-type-area").disabled = true
     document.querySelector(".start").disabled = false
+    document.querySelector(".start").style.backgroundColor = "#ffd000"
+    document.querySelector(".start").style.cursor = "pointer"
     document.querySelector(".infinity-type-area").style.borderColor = "#A1A1AA"
     clearInterval(clocking)
     document.querySelector(".infinity-min").innerText = "00"
@@ -346,14 +381,16 @@ function reset(){
     document.querySelector("#timer-wpm-inf").innerText = "0"
     document.querySelector("#timer-cpm-inf").innerText = "0"
     document.querySelector("#timer-accuracy-inf").innerText = "0"
-    document.querySelector(".user-type").innerText = samples[random]
+    document.querySelector(".infinity-user-type").innerText = samples[random]
 }
+
 document.querySelector(".start").addEventListener("click", start)
 document.querySelector(".reset").addEventListener("click", reset)
 
 var min = 0
 var sec = 0
 
+// Handling the timer of Infinity Section
 function timer(){
     if(sec===59){
         min = min+1
@@ -384,6 +421,8 @@ function timer(){
 var clocking;
 var mistakeCount = 0;
 var totalCharsInf = 0;
+
+// Taking care of the border color based on whether the text written by user match partially or fully or there is any error.
 async function checkUserInputInfinity(){
     totalCharsInf +=1
     var para = samples[random]
@@ -396,6 +435,7 @@ async function checkUserInputInfinity(){
         // Typing completed
         document.querySelector(".infinity-type-area").style.borderColor = "#16A34A"
         text = samples[random]
+        clearInterval(clocking)
         text = text.replace(userInput, '<span class="highlight-final">'+userInput +'</span>')
         document.querySelector(".infinity-user-type").innerHTML = text
         document.querySelector(".infinity-type-area").disabled = true
@@ -406,10 +446,11 @@ async function checkUserInputInfinity(){
             }, 5000);
         });
         await myPromise.then((result)=>{clearLoader()})
-            result()
-        }
+        document.querySelector("#infinity-mode").scrollIntoView()
+        result()
+    }
     else if(para.includes(userInput)){
-        document.querySelector(".infinity-type-area").style.borderColor = "#EA580C"
+        document.querySelector(".infinity-type-area").style.borderColor = "#F97316"
         text = samples[random]
         text = text.replace(userInput, '<span class="highlight">'+userInput +'</span>')
         document.querySelector(".infinity-user-type").innerHTML = text
@@ -424,6 +465,7 @@ async function checkUserInputInfinity(){
 
 document.querySelector(".infinity-type-area").addEventListener("input", checkUserInputInfinity)
 
+// Calculates result for Infinity Section
 function result(){
     // var charcount = samples[random].length
     var totaltime = parseInt(min)+parseInt(sec)/60
@@ -433,5 +475,4 @@ function result(){
     document.querySelector("#timer-wpm-inf").innerText = wpm
     document.querySelector("#timer-cpm-inf").innerText = cpm
     document.querySelector("#timer-accuracy-inf").innerText = accuracy
-    clearInterval(clocking)
 }
