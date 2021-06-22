@@ -2,7 +2,6 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/GaganpreetKaurKalsi/TypingSpeedTest-JS/total)
 ![GitHub language count](https://img.shields.io/github/languages/count/GaganpreetKaurKalsi/TypingSpeedTest-JS) 
 ![GitHub top language](https://img.shields.io/github/languages/top/GaganpreetKaurKalsi/TypingSpeedTest-JS?color=yellow) 
-![Code Climate issues](https://img.shields.io/codeclimate/issues/GaganpreetKaurKalsi/TypingSpeedTest-JS)
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/GaganpreetKaurKalsi/TypingSpeedTest-JS)
 ![GitHub forks](https://img.shields.io/github/forks/GaganpreetKaurKalsi/TypingSpeedTest-JS?style=social)
 ![GitHub Repo stars](https://img.shields.io/github/stars/GaganpreetKaurKalsi/TypingSpeedTest-JS?style=social)
