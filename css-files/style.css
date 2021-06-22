@@ -129,7 +129,7 @@ a{
   color : black;
 }
 .option:hover {
-  border: 2px solid var(--chrome);
+  border: 2px solid var(--primary-color);
   background-color: white;
 }
 .hide {
