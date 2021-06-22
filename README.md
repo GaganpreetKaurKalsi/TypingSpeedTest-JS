@@ -13,7 +13,11 @@
 
 
 ## About
-Typing speed test app made in HTML, CSS, and JavaScript. There are 2 modes :- **Time mode** and **Infinity mode**. <br>In time mode you need to write as much as possible before the time runs out. <br>In infinity mode you have to complete the given passage in the minimum time possible.
+Typing speed test app made in HTML, CSS, and JavaScript. There are 2 modes :- **Time mode** and **Infinity mode**. <br>In time mode you need to write as much as possible before the time runs out. There are 3 options you can opt for; 1min, 2min, 3min <br>In infinity mode you have to complete the given passage in the minimum time possible.<br>
+After you are done, the result is calculated and displayed. It includes WPM(words per min), CPM(chars per min) and Accuracy<br>
+**WPM** - Words per minute is the number of words processed per minute. For measuring typing speed, each word is standardized to be five characters or five keystrokes long, which include white space.<br>
+**CPM** - CPM is the number of characters typed per minute including whitespaces.<br>
+**Accuracy** - Typing accuracy is defined as the percentage of correct entries out of the total entries typed. <br>
 
 ## Languages/Technologies
 - HTML
@@ -23,6 +27,9 @@ Typing speed test app made in HTML, CSS, and JavaScript. There are 2 modes :- **
 - Netlify (for hosting)
 
 ## Features
+
+### Modes
+![Main](/gifs/main.gif)
 - **Time Mode** - 1min, 2min, 3min
 - **Infinity Mode**
 <br>
