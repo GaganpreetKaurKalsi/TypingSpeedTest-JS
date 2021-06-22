@@ -67,8 +67,7 @@ https://user-images.githubusercontent.com/54144759/122967691-5c36e500-d3a8-11eb-
 <br>
 
 ## ➡️ Difficulties
-**Not able to detect keyup event for space in android**  
-<br>
+### ""Not able to detect keyup event for space in android""
 Event Listeners like keyup, keydown and keypress doesn't work on android. In my project I had to detect space and backspace which broke when I opened the app in my android. The code worked fine on desktop browser. For making it work on android I had to change a lot of my code, had to rely on input event for space detection. It was easy to work with keyup and keydown. Changing to input event took a lot of efforts.
 
 **Link to stackoverflow discussion on the same issue :-**  <br>
