@@ -9,7 +9,7 @@
 }
 
 :root {
-  --chrome: #fbbf24;
+  --primary-color :#ffd000;
 }
 
 body {
@@ -47,8 +47,8 @@ body {
 .wrapper {
   text-align: center;
   padding: 60px 30px;
-  background-image: url(https://res.cloudinary.com/dn1j6dpd7/image/upload/f_auto,q_auto/v1600423784/typing-speed-test/test-bg-left.png),
-    url(https://res.cloudinary.com/dn1j6dpd7/image/upload/f_auto,q_auto/v1600423784/typing-speed-test/test-bg-right.png);
+  background-image: url(/images/bg-left.png),
+    url(/images/bg-right.png);
   background-size: 393px auto;
   background-position: calc(50% - 600px) 0, calc(50% + 600px) 0;
   background-repeat: repeat-y;
@@ -210,7 +210,7 @@ select:focus {
   margin: 20px auto;
   letter-spacing: 1px;
   margin-bottom: 50px;
-  color :#ffd000;
+  color :var(--primary-color);
 }
 .sample-head {
   text-align: center;
@@ -294,7 +294,7 @@ select:focus {
   max-width: 1000px;
   width: 90%;
   margin: 20px auto;
-  background-color: #ffd000;
+  background-color: var(--primary-color);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -354,7 +354,7 @@ footer {
   text-align: center;
 }
 .time-mode-section {
-  background-color: #ffd000;
+  background-color: var(--primary-color);
   position: relative;
   padding: 50px 10px;
 }
@@ -577,12 +577,12 @@ footer {
   font-weight: lighter;
 }
 .infinity-mode-section .result-timer-infinity {
-  border: 8px solid #ffd000;
+  border: 8px solid var(--primary-color);
   background-color: rgba(49, 49, 49, 0.685);
 }
 .start {
-  background-color: #ffd000;
-  /* border:3px solid #FFD000; */
+  background-color: var(--primary-color);
+  /* border:3px solid var(--primary-color); */
   /* color : white; */
   /* font-weight: bold; */
   color: rgba(32, 32, 32, 0.877);
